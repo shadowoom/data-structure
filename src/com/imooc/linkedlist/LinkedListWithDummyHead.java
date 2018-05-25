@@ -42,6 +42,10 @@ public class LinkedListWithDummyHead<E> {
 
     public LinkedListWithDummyHead(E[] array) {
         assert(array.length > 0);
+<<<<<<< HEAD
+=======
+        dummyHead = new Node(null, null);
+>>>>>>> 88cfe9bd1fdb3110fd4ce3ae9ddba9aa3682f811
         Node current = new Node(array[0]);
         dummyHead.next = current;
         size = 1;
@@ -78,4 +82,56 @@ public class LinkedListWithDummyHead<E> {
         add(size, e);
     }
 
+<<<<<<< HEAD
+=======
+    public E get(int index) {
+        if(index < 0 || index >= size )
+            throw new IllegalArgumentException("Get failed, Illegal index.");
+        Node cur = dummyHead.next;
+        for(int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+        return cur.e;
+    }
+
+    public E getFirst() {
+        return get(0);
+    }
+
+    public E getLast() {
+        return get(size - 1);
+    }
+
+    public void set(int index, E e) {
+        if(index < 0 || index >= size )
+            throw new IllegalArgumentException("Get failed, Illegal index.");
+        Node cur = dummyHead.next;
+        for(int i = 0; i < index; i++)
+            cur = cur.next;
+        cur.e = e;
+    }
+
+    public boolean contains(E e) {
+        Node cur = dummyHead.next;
+        while(cur != null) {
+            if(cur.e.equals(e))
+                return true;
+            cur = cur.next;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        Node cur = dummyHead.next;
+        while(cur != null) {
+            res.append(cur + "->");
+            cur = cur.next;
+        }
+        res.append("NULL");
+        return res.toString();
+    }
+
+>>>>>>> 88cfe9bd1fdb3110fd4ce3ae9ddba9aa3682f811
 }
