@@ -30,7 +30,7 @@ public class LoopQueue<E> implements Queue<E> {
         size = 0;
     }
 
-    @Override
+
     public int getCapacity() {
         return data.length - 1;
     }

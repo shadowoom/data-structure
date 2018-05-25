@@ -42,18 +42,16 @@ public class LinkedList<E> {
 
     public LinkedList(E[] array) {
         assert(array.length > 0);
-        Node head = new Node(array[0]);
+        head = new Node(array[0]);
         if(array.length == 1) {
             size = 1;
             return;
         }
-        Node current = new Node(array[1]);
-        head.next = current;
-        size = 2;
-        for(int i = 2; i < array.length; i++) {
+        Node current = head;
+        for(int i = 1; i < array.length; i++) {
             Node next = new Node(array[i]);
             current.next = next;
-            current = next;
+            current = current.next;
             size++;
         }
     }
@@ -130,6 +128,34 @@ public class LinkedList<E> {
             cur = cur.next;
         }
         return false;
+    }
+
+    public E remove(int index) {
+        if(index < 0 || index >= size )
+            throw new IllegalArgumentException("Get failed, Illegal index.");
+        if(index == 0) {
+            Node retNode = head;
+            head = head.next;
+            retNode.next = null;
+            size--;
+            return retNode.e;
+        }
+        Node prev = head;
+        for(int i = 1; i < index; i++)
+            prev = prev.next;
+        Node retNode = prev.next;
+        prev.next = retNode.next;
+        retNode.next = null;
+        size--;
+        return retNode.e;
+    }
+
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    public E removeLast() {
+        return remove(size - 1);
     }
 
     @Override

@@ -18,6 +18,4 @@ public interface Queue<E> {
 
     E getFront();
 
-    int getCapacity();
-
 }

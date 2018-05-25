@@ -45,7 +45,6 @@ public class ArrayQueue<E> implements Queue<E> {
         return array.getFirst();
     }
 
-    @Override
     public int getCapacity() {
         return array.getCapacity();
     }
