@@ -42,10 +42,7 @@ public class LinkedListWithDummyHead<E> {
 
     public LinkedListWithDummyHead(E[] array) {
         assert(array.length > 0);
-<<<<<<< HEAD
-=======
         dummyHead = new Node(null, null);
->>>>>>> 88cfe9bd1fdb3110fd4ce3ae9ddba9aa3682f811
         Node current = new Node(array[0]);
         dummyHead.next = current;
         size = 1;
@@ -82,8 +79,6 @@ public class LinkedListWithDummyHead<E> {
         add(size, e);
     }
 
-<<<<<<< HEAD
-=======
     public E get(int index) {
         if(index < 0 || index >= size )
             throw new IllegalArgumentException("Get failed, Illegal index.");
@@ -133,5 +128,4 @@ public class LinkedListWithDummyHead<E> {
         return res.toString();
     }
 
->>>>>>> 88cfe9bd1fdb3110fd4ce3ae9ddba9aa3682f811
 }
